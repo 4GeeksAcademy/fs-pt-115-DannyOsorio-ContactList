@@ -7,36 +7,30 @@ export const Demo = () => {
   const { store, dispatch } = useGlobalReducer()
 
   return (
-    <div className="container">
-      <ul className="list-group">
-        {/* Map over the 'todos' array from the store and render each item as a list element */}
-        {store && store.todos?.map((item) => {
-          return (
-            <li
-              key={item.id}  // React key for list items.
-              className="list-group-item d-flex justify-content-between"
-              style={{ background: item.background }}> 
-              
-              {/* Link to the detail page of this todo. */}
-              <Link to={"/single/" + item.id}>Link to: {item.title} </Link>
-              
-              <p>Open file ./store.js to see the global store that contains and updates the list of colors</p>
-              
-              <button className="btn btn-success" 
-                onClick={() => dispatch({
-                  type: "add_task", 
-                  payload: { id: item.id, color: '#ffa500' }
-                })}>
-                Change Color
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-      <br />
+    <div className="container-md my-5">
+      <h1 className="text-center">Add a new Contact +</h1>
+      <form>
+        <div className="mb-3">
+          <label for="name" className="form-label">Name</label>
+          <input type="text" className="form-control" id="name" placeholder="Enter Full Name" />
+        </div>
+        <div className="mb-3">
+          <label for="address" className="form-label">Address</label>
+          <input type="text" className="form-control" id="address" placeholder="Enter Address" />
+        </div>
+        <div className="mb-3">
+          <label for="phone" className="form-label">Phone</label>
+          <input type="number" className="form-control" id="phone" placeholder="Enter Phone" />
+        </div>
+        <div className="mb-3">
+          <label for="email" className="form-label">Email</label>
+          <input type="email" className="form-control" id="email" placeholder="Enter Email" />
+        </div>
+        <button type="submit" className="btn btn-primary w-100">Save</button>
+      </form>
 
       <Link to="/">
-        <button className="btn btn-primary">Back home</button>
+        <a className="">Or get back to Contacts</a>
       </Link>
     </div>
   );
