@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const Contact = ({image, name, address, phone, email}) => {
 
     return (
@@ -15,8 +17,10 @@ export const Contact = ({image, name, address, phone, email}) => {
                     </div>
                 </div>
                 <div className="col-md-2 text-center d-inline-flex flex-wrap justify-content-center">
-                    <button id="edit" className="btn"><i class="fa-solid fa-pen"></i></button>
-                    <button id="delete" className="btn"><i class="fa-solid fa-trash-can"></i></button>
+                    <Link to="/edit" className="text-center d-inline-flex flex-wrap justify-content-center">
+                        <button className="btn"><i className="fa-solid fa-pen"></i></button>
+                    </Link>
+                    <button className="btn"><i class="fa-solid fa-trash-can"></i></button>
                 </div>
             </div>
         </div>
